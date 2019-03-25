@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  font-size: 0;
+}
+
+button, input[type="text"] {
+  padding: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.go-out-img, .stay-in-img{
+  height: 50vh;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  border: 2px solid black;
+  opacity: .2;
+}
+
+.container:hover {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 4rem;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+
+.out-text {
+  color: black;
+  text-shadow: 0px 0px 5px gray;
+  
+}
+.in-text {
+  color: white;
+    text-shadow: 0px 0px 5px gray;
+
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TimeHole - A rock climber's paradise</title>
+  <meta name="description" content="One stop access to today's weather and classic climbs for a chosen area">
+  <link rel="stylesheet" href="go-out.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="r-mo-321406-unsplash.jpg"></a>
+    <form class="sections">
+      <label for="location"><h1>Where do you want to go climbing?</h1>
+        <input id="location" type="text" placeholder="Enter a city">
+        <input type="submit" value="How does it look?"> 
+      </label>
+      <div ><a href="https://www.accuweather.com"><img
+            src="https://uc4db067453f40530fa3ee20bd38.previews.dropboxusercontent.com/p/thumb/AAaD0kchGa516KkzB14-6W0AdPoMGTSJoviHfWDRso8V3MeqvnQWwZWEisGe4wfa7O_OmDuTC6tR7pAySuxHRTkpHGu-s8siZJIlVF3tZKHv6pSwtXu1YWU7V9P0Pfr-6jgSvs2fkjbXWfZ_7V7UrYxBBNjrTvhUuHG-m-TQHfxWX5YMDINn2LiuIBkRoOdcRdUwWs7RX-jmouuyh6AiBlBF7SxzAC_Vb7CQnOHxFGD0Mr1j97pfkwBCAiDhl52oCgI5uBMHCTVIBcT0fL0l_d3ykEtSbpsv1xLBhWGt76QJRGxi4R2CTtNkqRK1ZojPnBWy4096q6NoNeK4-_FQcZGi/p.png?size_mode=5" class="sponsor"></a>
+      </div>
+    </form>
+  </header>
+  <main class="results hidden">
+    <section class="weather sections">
+      <h1>Current Weather</h1>
+      <div id="weather-div"></div>
+      
+    </section>
+    <section class="routes sections">
+      <h1>Classic Routes In That Area</h1>
+      
+      <ol id="results-list" ></ol>
+    </section>
+    <fieldset class="group sections">
+      <legend>What type(s) of climbing do you like?</legend>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="cb1" value="Sport" /><label for="cb1">Sport</label></li>
+        <li><input type="checkbox" id="cb2" value="Trad" /><label for="cb2">Trad</label></li>
+        <li><input type="checkbox" id="cb3" value="Boulder" /><label for="cb3">Boulder</label></li>
+        <li><input type="checkbox" id="cb4" value="TR" /><label for="cb4">TR</label></li>
+        <li><input type="checkbox" id="cb5" value="Alpine" /><label for="cb5">Alpine</label></li>
+        <li><input type="checkbox" id="cb6" value="Snow" /><label for="cb6>">Snow</label></li>
+        <li><input type="checkbox" id="cb5" value="Ice" /><label for="cb5">Ice</label></li>
+        <li><input type="checkbox" id="cb6" value="Mixed" /><label for="cb6>">Mixed</label></li>
+      </ul>
+    </fieldset>
+  </main>
+  
+  <script src="go-out.js"></script>
+</body>
+
+</html>
