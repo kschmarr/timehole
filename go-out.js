@@ -32,6 +32,7 @@ function displayResults(responseJson) {
   // };
   //display the results section  
   $('.results').removeClass('hidden');
+  $('#location').val('');
 };
 
 function getLocation(query) {
@@ -42,7 +43,6 @@ function getLocation(query) {
   const locationURL = 'locations/v1/cities/search';
   const queryString = formatQueryParams(params);
   const url = searchURLWeather + locationURL + '?' + queryString;
-  console.log(url);
 
   fetch(url)
     .then(response => {
@@ -52,11 +52,18 @@ function getLocation(query) {
       throw new Error(response.statusText);
     })
     .then(responseJson => {
-      getWeather(responseJson);
-      getRoutes(responseJson);
+      console.log(responseJson.length);
+      if (responseJson.length > 0) {
+        getWeather(responseJson);
+        getRoutes(responseJson);
+      } else {
+        alert('No known cities with that name. Try again');
+      }
+      
     })
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      
     });
 }
 
@@ -78,8 +85,8 @@ function getWeather(query) {
       throw new Error(response.statusText);
     })
     .then(responseJson => {
-      displayResults(responseJson);
-      displayLocation(query);
+        displayResults(responseJson);
+        displayLocation(query);
     })
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
@@ -119,22 +126,28 @@ function displayRoutes(responseJson) {
   const routeArr = responseJson.filter(route => route.stars>=4);
   let locationDetail = '';
   $('#results-list').empty();
-  routeArr.forEach(route => {
-    locationDetail = '';
-    for(let i=0;i<route.location.length;i++){
-      if(i<route.location.length-1){
-        locationDetail += (route.location[i] + ' > ');
-      } else {
-        locationDetail += route.location[i];
+  if(routeArr.length>0){
+    routeArr.forEach(route => {
+      locationDetail = '';
+      for(let i=0;i<route.location.length;i++){
+        if(i<route.location.length-1){
+          locationDetail += (route.location[i] + ' > ');
+        } else {
+          locationDetail += route.location[i];
+        }
       }
-    }
-    
+      
+      $('#results-list').append(
+        `<li><h3 class="inline"><a href="${route.url}" target="_blank">${route.name}</a></h3>
+        <p class="inline">Grade: ${route.rating}, ${route.type}, ${route.stars} <i class="fas fa-star"></i></p>
+        <p>${locationDetail}</p></li>`
+      )
+    })
+  } else {
     $('#results-list').append(
-      `<li><h3 class="inline"><a href="${route.url}" target="_blank">${route.name}</a></h3>
-      <p class="inline">Grade: ${route.rating}, ${route.type}, ${route.stars} <i class="fas fa-star"></i></p>
-      <p>${locationDetail}</p></li>`
+      `<h3 class="inline">No known classics in this area</h3>`
     )
-  })
+  }
 };
 
 function displayLocation(query) {

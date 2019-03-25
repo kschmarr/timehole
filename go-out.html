@@ -15,19 +15,23 @@
 </head>
 
 <body>
-  <header>
-    <a href="index.html"><img class="logo" src="r-mo-321406-unsplash.jpg"></a>
-    <form class="sections">
+  <nav role="navigation">
+    <a href="index.html"><img class="logo" src="r-mo-321406-unsplash.jpg" alt="a mountain scene through a window"></a>
+  </nav>
+  <header role="banner">
+    
+    <form class="sections" role="search">
       <label for="location"><h1>Where do you want to go climbing?</h1>
-        <input id="location" type="text" placeholder="Enter a city">
+        <input id="location" type="text" placeholder="Enter a city" required>
         <input type="submit" value="How does it look?"> 
       </label>
       <div ><a href="https://www.accuweather.com"><img
-            src="https://uc4db067453f40530fa3ee20bd38.previews.dropboxusercontent.com/p/thumb/AAaD0kchGa516KkzB14-6W0AdPoMGTSJoviHfWDRso8V3MeqvnQWwZWEisGe4wfa7O_OmDuTC6tR7pAySuxHRTkpHGu-s8siZJIlVF3tZKHv6pSwtXu1YWU7V9P0Pfr-6jgSvs2fkjbXWfZ_7V7UrYxBBNjrTvhUuHG-m-TQHfxWX5YMDINn2LiuIBkRoOdcRdUwWs7RX-jmouuyh6AiBlBF7SxzAC_Vb7CQnOHxFGD0Mr1j97pfkwBCAiDhl52oCgI5uBMHCTVIBcT0fL0l_d3ykEtSbpsv1xLBhWGt76QJRGxi4R2CTtNkqRK1ZojPnBWy4096q6NoNeK4-_FQcZGi/p.png?size_mode=5" class="sponsor"></a>
+            src="accuweatherLogo.png" class="sponsor" alt="Accuweather.com Logo - A depiction of the Sun"></a>
       </div>
     </form>
   </header>
-  <main class="results hidden">
+  <main class="results hidden" role="main">
+    <section id="js-error-message"></section>
     <section class="weather sections">
       <h1>Current Weather</h1>
       <div id="weather-div"></div>
@@ -38,7 +42,8 @@
       
       <ol id="results-list" ></ol>
     </section>
-    <fieldset class="group sections">
+    <!-- This section will be implemented at a later date -->
+    <!-- <fieldset class="group sections">
       <legend>What type(s) of climbing do you like?</legend>
       <ul class="checkbox">
         <li><input type="checkbox" id="cb1" value="Sport" /><label for="cb1">Sport</label></li>
@@ -50,8 +55,11 @@
         <li><input type="checkbox" id="cb5" value="Ice" /><label for="cb5">Ice</label></li>
         <li><input type="checkbox" id="cb6" value="Mixed" /><label for="cb6>">Mixed</label></li>
       </ul>
-    </fieldset>
+    </fieldset> -->
   </main>
+  <footer role="contentinfo">
+    <p>Author: Kristoffer Schmarr = = = = = = = = = APIs used:Accuweather <a href="https://developer.accuweather.com/"><img src="accuweatherLogo.png" alt="Accuweather.com Logo" class="footImg"></a> & Mountain Project <a href="https://www.mountainproject.com/data"><img src="logoHex2.svg" alt="Mountain Project Logo" class="footImg"></a></p>
+  </footer>
   
   <script src="go-out.js"></script>
 </body>

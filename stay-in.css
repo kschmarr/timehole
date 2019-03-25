@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+form {
+  text-align: center;
+}
+
+nav {
+  padding: 10px;
+  background-color: black;
+  width: 100%;
+  opacity: .8;
+  position: absolute;
+  top: 0;
+}
+
+header {
+  border-radius: 10px;
+  margin: 150px auto;
+  opacity: .8;
+  background-image: radial-gradient(rgb(123, 255, 0), rgb(255, 230, 0), rgb(128, 36, 0));
+  width: 50%;
+  border: 1px solid white;
+  position: relative;
+  padding: 30px;
+}
+
+ 
+form > * {
+  margin: 20px 0;
+  text-align: center;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  /* height: 100vh;
+  width: 100vw; */
+  font-size: 1rem;
+  background-image: url("meric-dagli-408855-unsplash.jpg");
+  margin: 0;
+}
+
+button, input[type="text"] {
+  padding: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.inline {
+  display: inline;
+}
+
+.logo {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 100px;
+  text-align: left;
+}
+
+
+.sponsor {
+  width: 15%;
+}
+
+.footImg {
+  height: 20px;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
