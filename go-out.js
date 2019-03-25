@@ -1,7 +1,7 @@
 'use strict';
 const apiKeyWeather = 'P0Cg94I1UtQ64UEhXAu446vGtNAnfnpa';
 const apiKeyMtnPrj = '106112509-335f6e6c09491cbfddee0a14b80779b4';
-const searchURLWeather = 'http://dataservice.accuweather.com/';
+const searchURLWeather = 'https://dataservice.accuweather.com/';
 const searchURLMtnPrj = 'https://www.mountainproject.com/data/get-routes-for-lat-lon?';
 
 const maxResults = 10;
