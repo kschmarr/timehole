@@ -14,23 +14,15 @@ function formatQueryParams(params) {
 }
 
 function displayResults(responseJson) {
-  // if there are previous results, remove them
   $('#weather-div').empty();
-  // iterate through the data array
-  // console.log(responseJson);
-  // for (let i = 0; i < responseJson.data.length; i++) {
-  //   // for each park object in the data 
-  //   //array, add a list item to the results 
-  //   //list with the park name, description,
-  //   //and url
+ 
     $('#weather-div').append(
       `<h3>Today's theme: ${responseJson.DailyForecasts[0].Day.IconPhrase}</h3>
       <p>High of: ${responseJson.DailyForecasts[0].Temperature.Maximum.Value}F</p>
       <p>Headline: ${responseJson.Headline.Text}</p>
       <a href="${responseJson.DailyForecasts[0].Link}">More Info</a>`
     )
-  // };
-  //display the results section  
+  
   $('.results').removeClass('hidden');
   $('#location').val('');
 };
@@ -68,7 +60,6 @@ function getLocation(query) {
 }
 
 function getWeather(query) {
-  // console.log(query);
   const key = query[0].Key
   const params = {
     apikey: apiKeyWeather,
@@ -94,7 +85,6 @@ function getWeather(query) {
 }
 
 function getRoutes(query) {
-  // console.log(query);
   const lat = query[0].GeoPosition.Latitude
   const lon = query[0].GeoPosition.Longitude
   const params = {
@@ -105,7 +95,7 @@ function getRoutes(query) {
   };
   const queryString = formatQueryParams(params)
   const url = searchURLMtnPrj+ queryString;
-  // https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.03&lon=-105.25&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=106112509-335f6e6c09491cbfddee0a14b80779b4
+
   fetch(url)
     .then(response => {
       if (response.ok) {
