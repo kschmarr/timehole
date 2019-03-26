@@ -25,6 +25,8 @@ function displayResults(responseJson) {
   
   $('.results').removeClass('hidden');
   $('#location').val('');
+  $('#location2').val('');
+  $('#js-error-message').text('');
 };
 
 function getLocation(query) {
@@ -44,10 +46,9 @@ function getLocation(query) {
       throw new Error(response.statusText);
     })
     .then(responseJson => {
-      console.log(responseJson.length);
+      console.log(responseJson);
       if (responseJson.length > 0) {
-        getWeather(responseJson);
-        getRoutes(responseJson);
+        specifyLocation(responseJson);
       } else {
         alert('No known cities with that name. Try again');
       }
@@ -57,6 +58,17 @@ function getLocation(query) {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
       
     });
+}
+
+function specifyLocation(possibleLocations) {
+  const state = $('#location2').val().toLowerCase();
+  const specifiedLocation = possibleLocations.filter(location => location.AdministrativeArea.LocalizedName.toLowerCase()===state || location.AdministrativeArea.ID.toLowerCase() === state);
+  if (specifiedLocation.length > 0) {
+    getWeather(specifiedLocation);
+    getRoutes(specifiedLocation);
+  } else {
+    alert('No known cities with that name in that state. Try again');
+  }
 }
 
 function getWeather(query) {
@@ -94,7 +106,7 @@ function getRoutes(query) {
     maxDistance: maxDistance
   };
   const queryString = formatQueryParams(params)
-  const url = searchURLMtnPrj+ queryString;
+  const url = searchURLMtnPrj + queryString;
 
   fetch(url)
     .then(response => {
@@ -112,7 +124,6 @@ function getRoutes(query) {
 }
 
 function displayRoutes(responseJson) {
-  console.log(responseJson);
   const routeArr = responseJson.filter(route => route.stars>=4);
   let locationDetail = '';
   $('#results-list').empty();

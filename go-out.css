@@ -36,7 +36,7 @@ button, input[type="text"] {
   padding: 5px;
 }
 
-button:hover {
+button:hover, input[type=submit]:hover {
   cursor: pointer;
 }
 
@@ -60,7 +60,7 @@ li {
 .logo {
   border: 1px solid white;
   border-radius: 50%;
-  width: 100px;
+  width: 50px;
   text-align: left;
 }
 
@@ -112,7 +112,7 @@ nav {
 }
 
 header {
-    margin: 150px auto;
+    margin: 150px auto 50px;
 }
 
 .routes {
